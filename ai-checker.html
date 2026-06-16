@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Checker</title>
+  <link rel="stylesheet" href="ai-checker.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace" aria-labelledby="app-title">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Text analysis</p>
+          <h1 id="app-title">AI Checker</h1>
+        </div>
+        <button class="icon-button" id="clearButton" type="button" title="Clear text" aria-label="Clear text">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </header>
+
+      <div class="editor-grid">
+        <section class="panel input-panel" aria-label="Text input">
+          <label for="textInput">Paste writing to check</label>
+          <textarea id="textInput" spellcheck="true" placeholder="Paste an essay, email, article, or paragraph here..."></textarea>
+          <div class="input-footer">
+            <span id="wordCount">0 words</span>
+            <button id="sampleButton" type="button">Try sample</button>
+          </div>
+        </section>
+
+        <section class="panel results-panel" aria-label="Analysis results">
+          <div class="score-block">
+            <div class="meter" aria-hidden="true">
+              <svg viewBox="0 0 160 160" role="img">
+                <circle class="meter-bg" cx="80" cy="80" r="66"></circle>
+                <circle class="meter-value" id="meterValue" cx="80" cy="80" r="66"></circle>
+              </svg>
+              <div class="score-text">
+                <strong id="scoreValue">0%</strong>
+                <span id="scoreLabel">Needs text</span>
+              </div>
+            </div>
+            <div>
+              <h2 id="resultTitle">No analysis yet</h2>
+              <p id="resultSummary">
+                Paste at least 50 words to estimate whether the writing has patterns often found in AI-generated text.
+              </p>
+            </div>
+          </div>
+
+          <div class="stats-grid" aria-label="Writing statistics">
+            <article>
+              <span>Words</span>
+              <strong id="statWords">0</strong>
+            </article>
+            <article>
+              <span>Sentences</span>
+              <strong id="statSentences">0</strong>
+            </article>
+            <article>
+              <span>Avg. sentence</span>
+              <strong id="statAverage">0</strong>
+            </article>
+            <article>
+              <span>Vocabulary repeat</span>
+              <strong id="statRepeat">0%</strong>
+            </article>
+          </div>
+
+          <div class="signals">
+            <h2>Signals</h2>
+            <ul id="signalList"></ul>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel revision-panel" aria-labelledby="revisionTitle">
+        <div class="revision-header">
+          <div>
+            <p class="eyebrow">Revision studio</p>
+            <h2 id="revisionTitle">Make it sound more natural</h2>
+            <p>
+              Creates a cleaner, more human-feeling draft you can edit with your own examples, opinions, and details.
+            </p>
+          </div>
+          <button id="rewriteButton" type="button">Rewrite draft</button>
+        </div>
+
+        <div class="revision-grid">
+          <div class="rewrite-box">
+            <label for="rewriteOutput">Rewritten draft</label>
+            <textarea id="rewriteOutput" spellcheck="true" placeholder="Your revised draft will appear here after you paste text above and click Rewrite draft."></textarea>
+            <div class="input-footer">
+              <span id="rewriteCount">0 words</span>
+              <button id="copyRewriteButton" type="button">Copy draft</button>
+            </div>
+          </div>
+
+          <aside class="revision-tips" aria-label="Personal revision tips">
+            <h2>Personal touches to add</h2>
+            <ul id="revisionTips"></ul>
+          </aside>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="ai-checker.js"></script>
+</body>
+</html>
